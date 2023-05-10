@@ -7,8 +7,8 @@ interface Route {
 
 const links: Route[] = [
   {
-    label: 'About',
-    route: '/about'
+    label: 'Analytics',
+    route: '/analytics'
   }
 ]
 
