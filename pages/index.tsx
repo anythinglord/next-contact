@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import Card from '@/components/Card'
 import Modal from "@/components/Modal";
+import { People } from '@/data/people';
+import { useDispatch } from "react-redux";
+import { addPeople } from "@/redux/states/people";
 
 export default function Home() {
 
   const [isOpen, handleClose] = useState<boolean>(false);
   const [name, setName] = useState<string>('');
   const [Number, setNumber] = useState<string>('');
-
-  const [contacts, setContacts] = useState([
-    { id: 1, name: 'Jane', number: '921 15 16' },
-    { id: 2, name: 'Doile', number: '911 15 16' },
-    { id: 3, name: 'Carl', number: '921 36 16' },
-  ]);
+  const [Age, setAge] = useState<number>(25);
+  const dispatch = useDispatch();
+  const [contacts, setContacts] = useState(People);
 
   const saveData = (): void => {
     const newContacts = [...contacts];
@@ -20,8 +20,19 @@ export default function Home() {
     newContacts.push({
       id: newId,
       name: name,
-      number: Number,
+      phone: Number,
+      category: 'manager',
+      company: 'McDonalds',
+      age: Age
     })
+    dispatch(addPeople({
+      id: newId,
+      name: name,
+      phone: Number,
+      category: 'manager',
+      company: 'McDonalds',
+      age: Age
+    }));
     setContacts(newContacts);
     handleClose(!isOpen)
   };
@@ -51,11 +62,11 @@ export default function Home() {
           Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
         </p>
       </div>
-      {contacts.map(({ id, name, number }) =>
-        <Card key={id} id={id} title={name} content={number} />
+      {contacts.map(({ id, name, phone, age }) =>
+        <Card key={id} id={id} title={name} phone={phone} age={age}/>
       )}
       
-      <Card id={0} title='This is a new card' content='this is a new content' />
+      <Card id={0} title='This is a new card' phone='this is a new content' age={25}/>
       {isOpen && <Modal isOpen={isOpen} handleClose={() => handleClose(!isOpen)} inputChange={inputChange} saveData={saveData}/>}
     </main>
   )

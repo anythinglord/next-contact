@@ -11,10 +11,10 @@ const Modal = ({ isOpen, handleClose, inputChange, saveData }: Props) => {
   return (
     <div className="fixed top-0 left-0 right-0 bg-slate-200/50 z-50 w-full p-4 overflow-x-hidden overflow-y-auto  h-[calc(100%-1rem)] max-h-full">
       <div className="w-full max-h-full flex justify-center h-[calc(100%-1rem)]">
-        <div className="max-w-2xl bg-white rounded-lg shadow dark:bg-gray-700 h-[calc(40%-1rem)]">
+        <div className="max-w-2xl mt-20 bg-white rounded-lg shadow dark:bg-gray-700 h-[calc(45%-1rem)]">
           <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-              Create new contact
+              New contact
             </h3>
             <button onClick={handleClose} type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
               <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -37,6 +37,24 @@ const Modal = ({ isOpen, handleClose, inputChange, saveData }: Props) => {
                     Number
                   </label>
                   <input onChange={e => inputChange(e)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="input-number" type="text" placeholder="92 186 54" />
+                </div>
+                <div className="w-full md:w-1/5 px-3" style={{ paddingTop: 15 }}>
+                  <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                    Age
+                  </label>
+                  <input onChange={e => inputChange(e)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="input-number" type="text" placeholder="25" />
+                </div>
+                <div className="w-full md:w-2/5 px-3" style={{ paddingTop: 15 }}>
+                  <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                    Company
+                  </label>
+                  <input onChange={e => inputChange(e)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="input-number" type="text" placeholder="Apple" />
+                </div>
+                <div className="w-full md:w-2/5 px-3" style={{ paddingTop: 15 }}>
+                  <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                    Category
+                  </label>
+                  <input onChange={e => inputChange(e)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="input-number" type="text" placeholder="Manager" />
                 </div>
               </div>
             </form>
